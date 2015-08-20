@@ -1,6 +1,8 @@
 var Queue = function(){
   var someInstance = {};
   var counter = 0;
+  var head = 0;
+  var size = 0;
 
   // Use an object with numeric keys to store values
   var storage = {};
@@ -10,19 +12,29 @@ var Queue = function(){
   someInstance.enqueue = function(value){
     storage[counter] = value;
     counter++;
+    size++;
   };
 
   someInstance.dequeue = function(){
-    var poppedItem = storage[Math.max(0, counter-1)];
-    delete storage[Math.max(0, counter-1)];
-    if (counter !== 0) {
-      counter--;
+    var poppedItem = storage[head];
+    console.log(poppedItem);
+
+    delete storage[head];
+
+    head++;
+
+    if (size !== 0) {
+     size--;
     }
+
+    // if (counter !== 0) {
+    //   counter--;
+    // }
     return poppedItem;
   };
 
   someInstance.size = function(){
-    return counter;
+    return size;
   };
 
   return someInstance;
