@@ -11,7 +11,7 @@ var Graph = function(){
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(nodeValue){
-  this.adjacencyList[nodeValue] = [nodeValue, {nodeValue: nodeValue}];
+  this.adjacencyList[nodeValue] = [nodeValue, {}];
 
 
 };
